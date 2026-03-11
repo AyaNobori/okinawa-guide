@@ -73,6 +73,11 @@ body {
   border-bottom: 1px solid var(--border);
   background: #FAF7F2;
 }
+.hero-img {
+  position: absolute; top: 0; right: 0; bottom: 0;
+  width: 55%; height: 100%; object-fit: contain; object-position: center right;
+  z-index: 0; opacity: 0.85;
+}
 .hero::before {
   content: '';
   position: absolute; top: -60px; right: -60px;
@@ -87,10 +92,9 @@ body {
   background: radial-gradient(circle, rgba(255,107,80,0.09) 0%, transparent 70%);
   z-index: 0;
 }
-.hero-img {
-  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  width: 100%; height: 100%; object-fit: cover; object-position: center;
-  z-index: 0; opacity: 0.25;
+.hero-deco {
+  position: absolute; top: 0; right: 0; bottom: 0;
+  width: 140px; z-index: 0; opacity: 0.22;
 }
 .hero-title {
   position: relative; z-index: 1;
@@ -98,21 +102,24 @@ body {
   line-height: 1.22; margin-bottom: 14px; letter-spacing: -0.5px;
 }
 .hero-title em { font-style: normal; color: var(--coral); }
-.hero-desc {
-  position: relative; z-index: 1;
-  font-size: 13px; color: #888; line-height: 1.7; margin-bottom: 28px; max-width: 280px;
+.hero-bottom {
+  position: absolute; z-index: 1;
+  bottom: 24px; left: 28px; right: 28px;
+  display: flex; align-items: flex-end; justify-content: space-between;
+}
+.hero-bottom-text {
+  font-size: 11px; color: #555; line-height: 1.65; font-weight: 500; max-width: 160px;
 }
 .hero-cta {
-  position: relative; z-index: 1;
-  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
   background: var(--coral); color: var(--white);
-  font-size: 14px; font-weight: 700;
-  padding: 15px 28px; border-radius: 100px; text-decoration: none;
+  font-size: 12px; font-weight: 700;
+  padding: 12px 18px; border-radius: 100px; text-decoration: none;
   box-shadow: 0 4px 20px rgba(255,107,80,0.35);
-  transition: background 0.2s, transform 0.15s; width: fit-content;
+  transition: background 0.2s, transform 0.15s; white-space: nowrap;
 }
 .hero-cta:active { background: var(--coral-dark); transform: scale(0.98); }
-.hero-cta svg { width: 16px; height: 16px; }
+.hero-cta svg { width: 14px; height: 14px; }
 
 /* SECTION */
 .section { padding: 28px 20px; border-bottom: 1px solid var(--border); }
@@ -260,19 +267,28 @@ body {
 
 <!-- HERO -->
 <section class="hero">
-  <img class="hero-img" src="https://ayanobori.github.io/okinawa-guide/hero.jpg" alt="OKI TRIP" onerror="this.style.display='none'">
-  <h1 class="hero-title">
-    <span data-ja>沖縄の<br>ローカルを<em>楽しもう</em></span>
-    <span data-en style="display:none">Explore Okinawa's<br><em>Local Gems</em></span>
-  </h1>
-  <p class="hero-desc">
-    <span data-ja>宿泊中だけの限定クーポンや、地元に愛されるお店をご紹介。観光客には教えない、本物の沖縄をどうぞ。</span>
-    <span data-en style="display:none">Discover local coupons and hidden spots loved by locals — exclusive to our guests only.</span>
-  </p>
-  <a href="#coupons" class="hero-cta">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-    <span data-ja>近くのお店を見る</span><span data-en style="display:none">Find Nearby Spots</span>
-  </a>
+  <img class="hero-img" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/4QC8RXhpZgAASUkqAAgAAAAGABIBAwABAAAAAQAAABoBBQABAAAAVgAAABsBBQABAAAAXgAAACgBAwABAAAAAgAAABMCAwABAAAAAQAAAGmHBAABAAAAZgAAAAAAAABgAAAAAQAAAGAAAAABAAAABgAAkAcABAAAADAyMTABkQcABAAAAAECAwAAoAcABAAAADAxMDABoAMAAQAAAP//AAACoAMAAQAAADgEAAADoAMAAQAAANACAAAAAAAA/+EPA2h0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8APD94cGFja2V0IGJlZ2luPSfvu78nIGlkPSdXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQnPz4KPHg6eG1wbWV0YSB4bWxuczp4PSdhZG9iZTpuczptZXRhLyc+CjxyZGY6UkRGIHhtbG5zOnJkZj0naHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyc+CgogPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9JycKICB4bWxuczpBdHRyaWI9J2h0dHA6Ly9ucy5hdHRyaWJ1dGlvbi5jb20vYWRzLzEuMC8nPgogIDxBdHRyaWI6QWRzPgogICA8cmRmOlNlcT4KICAgIDxyZGY6bGkgcmRmOnBhcnNlVHlwZT0nUmVzb3VyY2UnPgogICAgIDxBdHRyaWI6Q3JlYXRlZD4yMDI2LTAzLTExPC9BdHRyaWI6Q3JlYXRlZD4KICAgICA8QXR0cmliOkRhdGE+eyZxdW90O2RvYyZxdW90OzomcXVvdDtEQUhEbmVBNmZmbyZxdW90OywmcXVvdDt1c2VyJnF1b3Q7OiZxdW90O1VBR3pMNjZkZlpRJnF1b3Q7LCZxdW90O2JyYW5kJnF1b3Q7OiZxdW90OzA2MDV1bmXjgZXjgpPjga7jg4Hjg7zjg6AmcXVvdDt9PC9BdHRyaWI6RGF0YT4KICAgICA8QXR0cmliOkV4dElkPjE5Y2Q0ZWI0LTZiMjAtNGQzMi04MDU3LTA4ZTYxYzg4YjIxYjwvQXR0cmliOkV4dElkPgogICAgIDxBdHRyaWI6RmJJZD41MjUyNjU5MTQxNzk1ODA8L0F0dHJpYjpGYklkPgogICAgIDxBdHRyaWI6VG91Y2hUeXBlPjI8L0F0dHJpYjpUb3VjaFR5cGU+CiAgICA8L3JkZjpsaT4KICAgPC9yZGY6U2VxPgogIDwvQXR0cmliOkFkcz4KIDwvcmRmOkRlc2NyaXB0aW9uPgoKIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PScnCiAgeG1sbnM6ZGM9J2h0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvJz4KICA8ZGM6dGl0bGU+CiAgIDxyZGY6QWx0PgogICAgPHJkZjpsaSB4bWw6bGFuZz0neC1kZWZhdWx0Jz7lkI3np7DmnKroqK3lrprjga7jg4fjgrbjgqTjg7MgLSAxPC9yZGY6bGk+CiAgIDwvcmRmOkFsdD4KICA8L2RjOnRpdGxlPgogPC9yZGY6RGVzY3JpcHRpb24+CgogPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9JycKICB4bWxuczpwZGY9J2h0dHA6Ly9ucy5hZG9iZS5jb20vcGRmLzEuMy8nPgogIDxwZGY6QXV0aG9yPkJMT+S6iOe0hOOCu+ODs+OCv+ODvDwvcGRmOkF1dGhvcj4KIDwvcmRmOkRlc2NyaXB0aW9uPgoKIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PScnCiAgeG1sbnM6eG1wPSdodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvJz4KICA8eG1wOkNyZWF0b3JUb29sPkNhbnZhIChSZW5kZXJlcikgZG9jPURBSERuZUE2ZmZvIHVzZXI9VUFHekw2NmRmWlEgYnJhbmQ9MDYwNXVuZeOBleOCk+OBruODgeODvOODoDwveG1wOkNyZWF0b3JUb29sPgogPC9yZGY6RGVzY3JpcHRpb24+CjwvcmRmOlJERj4KPC94OnhtcG1ldGE+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCjw/eHBhY2tldCBlbmQ9J3cnPz7/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCALQBDgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD6pooooAKKKKACiiigAooooAKKiuriO1gaadtsS8s3YD1PtUikMoKkFSMgjvQAtFVbp3tUMyKXiH30HUD1H+FTW80dxCksLBo2GQRUqWtgINXsItU0y5spyQkyFdy9UPZh7g4I9xXK6PLH4k8P6p4f1cK0wWSyuFIxzjGQPfhh9a7WvMPHV0vhDxlYa0WKWWpEQTn+FJFHysfqOPwrOs+Vc/b8iZaasqfBKS50hNQ8P3zfvLGcoAf7p5BrS0CVrH4zeI7IghLyCK5TP+4gP6hqzNamGlfE/T72NiLTWIthI6Bx/wDXH61Z165Fp8afDNx0GoWEkP8A3w2T/wChiuaOmi6O5mtkuzPUq8o+H0qwv8StUaRTGdTnII7BExXq5OASegr5/wDC9w2m/Czx1NI48y51SSHOe8hROP8Avo101ZJNfP8AIqcuU7XwXP8A2P8ACa4vpDskMLsCO7kbV/UitL4WPnTdQd1C4mAJ7cKKwPHT/wBn/CrS7SEhftVzBF9eS/8ANBWXoniMaZ8HfEmplvna4lhiHfLbUH88/hXNCVpR8lcjm5Xbsiz4RvX8V+PJrwEm3ErSj08tDhR/KvTvEd/9hsML/rpSI0A65NeefAXSZrawvL24ABCpbr9cb3/VgPwrZvLv+3PHCWqMTBZNyB0LD/65/SqpycaafWTLh8N2dppUXk2MS4xxmrTMEUsxwByaUDAAHQVzWvajJcavb6RZ53N80zDsPSutvlRbdjftn84GTnaeF+lTU2JBHGqL0UYp1UMKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiigjIxQAjKGUqwBUjBB6GuO8QarL4MuYLqfMvhyZxFLxlrNj0b3jJ6+hPp06yGXMjROf3q8n3HrTNTsbfU9PuLK9iWW2nQxyIe4NS1fVbid7aEsE0dxAksLrJE43KynIIrkdX1FvB2sw z53/AAAAjHBBBB" alt="OKI TRIP" onerror="this.style.display='none'">
+  <svg class="hero-deco" viewBox="0 0 140 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="100" cy="80" r="90" stroke="#3C8681" stroke-width="1.2"/>
+    <circle cx="100" cy="80" r="70" stroke="#3C8681" stroke-width="0.6"/>
+    <circle cx="30" cy="240" r="40" stroke="#FF6B50" stroke-width="1"/>
+    <circle cx="30" cy="240" r="26" stroke="#FF6B50" stroke-width="0.5"/>
+    <circle cx="60" cy="180" r="3" fill="#3C8681"/>
+    <circle cx="80" cy="200" r="2" fill="#FF6B50"/>
+    <circle cx="50" cy="160" r="1.5" fill="#3C8681"/>
+    <circle cx="110" cy="170" r="2.5" fill="#FF6B50" opacity="0.5"/>
+    <line x1="10" y1="130" x2="130" y2="130" stroke="#DDDDDD" stroke-width="0.8"/>
+  </svg>
+  <div class="hero-bottom">
+    <p class="hero-bottom-text">
+      <span data-ja>沖縄をもっと楽しむ。<br>宿泊ゲスト限定の<br>ローカル情報＆お得クーポン</span>
+      <span data-en style="display:none">Enjoy Okinawa more.<br>Local tips & exclusive coupons<br>for our guests only.</span>
+    </p>
+    <a href="#coupons" class="hero-cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span data-ja>近くのお店を見る</span><span data-en style="display:none">Find Nearby Spots</span>
+    </a>
+  </div>
 </section>
 
 <!-- COUPONS -->
@@ -319,11 +335,20 @@ body {
           <defs><linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#29B6D4"/><stop offset="100%" stop-color="#0077A8"/></linearGradient></defs>
           <rect width="220" height="148" fill="url(#g2)"/>
           <circle cx="110" cy="-10" r="50" fill="rgba(255,220,80,0.18)"/>
+          <path d="M80 0 L70 80" stroke="rgba(255,255,255,0.12)" stroke-width="8"/>
+          <path d="M110 0 L115 90" stroke="rgba(255,255,255,0.10)" stroke-width="10"/>
+          <circle cx="70" cy="60" r="5" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+          <circle cx="150" cy="50" r="4" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/>
           <g fill="rgba(255,255,255,0.6)">
             <ellipse cx="90" cy="80" rx="14" ry="6" transform="rotate(-10 90 80)"/>
             <polygon points="76,80 68,74 68,86"/>
             <ellipse cx="155" cy="100" rx="10" ry="4" transform="rotate(12 155 100)"/>
             <polygon points="145,100 138,96 138,104"/>
+          </g>
+          <g fill="rgba(255,120,80,0.5)">
+            <rect x="30" y="120" width="6" height="20" rx="3"/>
+            <rect x="40" y="112" width="6" height="28" rx="3"/>
+            <rect x="50" y="118" width="6" height="22" rx="3"/>
           </g>
           <text x="110" y="142" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.45)" font-family="sans-serif" font-weight="600">DIVING &amp; SNORKEL</text>
         </svg>
@@ -400,8 +425,12 @@ body {
           <defs><linearGradient id="g5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3C8681"/><stop offset="100%" stop-color="#2A5F5C"/></linearGradient></defs>
           <rect width="220" height="148" fill="url(#g5)"/>
           <path d="M0 110 Q110 95 220 110 L220 148 L0 148Z" fill="rgba(0,0,0,0.2)"/>
+          <line x1="20" y1="128" x2="60" y2="125" stroke="rgba(255,255,255,0.4)" stroke-width="3" stroke-dasharray="8 6"/>
+          <line x1="80" y1="124" x2="140" y2="122" stroke="rgba(255,255,255,0.4)" stroke-width="3" stroke-dasharray="8 6"/>
           <rect x="60" y="75" width="100" height="38" rx="8" fill="white" opacity="0.9"/>
           <path d="M75 75 Q85 52 100 52 L120 52 Q135 52 145 75Z" fill="white" opacity="0.85"/>
+          <rect x="82" y="57" width="24" height="18" rx="4" fill="#3C8681" opacity="0.6"/>
+          <rect x="114" y="57" width="24" height="18" rx="4" fill="#3C8681" opacity="0.6"/>
           <circle cx="85" cy="113" r="12" fill="#333"/>
           <circle cx="85" cy="113" r="6" fill="#888"/>
           <circle cx="135" cy="113" r="12" fill="#333"/>
