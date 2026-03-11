@@ -7,100 +7,27 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
-  --coral: #FF6B50;
-  --coral-dark: #E5513A;
-  --teal: #3C8681;
-  --teal-dark: #2A6560;
-  --text: #222222;
-  --sub: #717171;
-  --border: #DDDDDD;
-  --bg: #F7F7F7;
-  --white: #FFFFFF;
-  --radius: 16px;
+  --coral: #FF6B50; --coral-dark: #E5513A;
+  --teal: #3C8681; --teal-dark: #2A6560;
+  --text: #222; --sub: #717171; --border: #DDD;
+  --bg: #F7F7F7; --white: #FFF; --radius: 16px;
 }
-
 html { scroll-behavior: smooth; }
-body {
-  font-family: 'Noto Sans JP', sans-serif;
-  background: var(--white);
-  color: var(--text);
-  max-width: 480px;
-  margin: 0 auto;
-  padding-bottom: 72px;
-}
+body { font-family: 'Noto Sans JP', sans-serif; background: var(--white); color: var(--text); max-width: 480px; margin: 0 auto; padding-bottom: 72px; }
 
 /* HEADER */
-.header {
-  position: sticky; top: 0; z-index: 50;
-  background: var(--white);
-  border-bottom: 1px solid var(--border);
-  padding: 14px 20px;
-  display: flex; align-items: center; justify-content: space-between;
-}
+.header { position: sticky; top: 0; z-index: 50; background: var(--white); border-bottom: 1px solid var(--border); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; }
 .header-logo { font-size: 13px; font-weight: 700; color: var(--teal); letter-spacing: 0.06em; }
-
-.lang-toggle {
-  display: flex;
-  background: var(--bg);
-  border-radius: 100px;
-  padding: 3px;
-  border: 1px solid var(--border);
-  gap: 2px;
-}
-.lang-btn {
-  padding: 4px 12px;
-  border-radius: 100px;
-  font-size: 11px; font-weight: 700;
-  border: none; cursor: pointer;
-  background: transparent; color: var(--sub);
-  transition: background 0.2s, color 0.2s;
-}
-.lang-btn.active {
-  background: var(--white);
-  color: var(--text);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-}
+.lang-toggle { display: flex; background: var(--bg); border-radius: 100px; padding: 3px; border: 1px solid var(--border); gap: 2px; }
+.lang-btn { padding: 4px 12px; border-radius: 100px; font-size: 11px; font-weight: 700; border: none; cursor: pointer; background: transparent; color: var(--sub); transition: background 0.2s, color 0.2s; }
+.lang-btn.active { background: var(--white); color: var(--text); box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
 
 /* HERO */
-.hero {
-  position: relative;
-  overflow: hidden;
-  min-height: 320px;
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 48px 28px 44px;
-  border-bottom: 1px solid var(--border);
-  /* 背景画像をセクション全体に */
-  background-image: url('hero.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.hero-title {
-  position: relative; z-index: 1;
-  font-size: 30px; font-weight: 800; color: #FFFFFF;
-  line-height: 1.22; margin-bottom: 14px; letter-spacing: -0.5px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
-}
-.hero-title em { font-style: normal; color: #FFB3A5; }
-.hero-bottom {
-  position: absolute; z-index: 1;
-  bottom: 24px; left: 28px; right: 28px;
-  display: flex; align-items: flex-end; justify-content: space-between;
-}
-.hero-bottom-text {
-  font-size: 11px; color: var(--teal); line-height: 1.65; font-weight: 600; max-width: 160px;
-}
-.hero-cta {
-  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-  background: var(--coral); color: var(--white);
-  font-size: 12px; font-weight: 700;
-  padding: 12px 18px; border-radius: 100px; text-decoration: none;
-  box-shadow: 0 4px 20px rgba(255,107,80,0.45);
-  transition: background 0.2s, transform 0.15s; white-space: nowrap;
-}
+.hero { position: relative; overflow: hidden; min-height: 320px; display: flex; flex-direction: column; justify-content: center; padding: 48px 28px 44px; border-bottom: 1px solid var(--border); background-image: url('hero.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; }
+.hero-bottom { position: absolute; z-index: 1; bottom: 24px; left: 28px; right: 28px; display: flex; align-items: flex-end; justify-content: space-between; }
+.hero-bottom-text { font-size: 11px; color: var(--teal); line-height: 1.65; font-weight: 600; max-width: 160px; }
+.hero-cta { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: var(--coral); color: var(--white); font-size: 12px; font-weight: 700; padding: 12px 18px; border-radius: 100px; text-decoration: none; box-shadow: 0 4px 20px rgba(255,107,80,0.45); transition: background 0.2s, transform 0.15s; white-space: nowrap; }
 .hero-cta:active { background: var(--coral-dark); transform: scale(0.98); }
 .hero-cta svg { width: 14px; height: 14px; }
 
@@ -111,64 +38,26 @@ body {
 .section-link { font-size: 13px; font-weight: 600; color: var(--text); text-decoration: underline; text-underline-offset: 2px; }
 
 /* COUPON CARDS */
-.cards-scroll {
-  margin: 0 -20px; padding: 0 20px 4px;
-  display: flex; gap: 14px;
-  overflow-x: auto; scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch; scrollbar-width: none;
-}
+.cards-scroll { margin: 0 -20px; padding: 0 20px 4px; display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
 .cards-scroll::-webkit-scrollbar { display: none; }
-.coupon-card {
-  flex: 0 0 220px; background: var(--white);
-  border-radius: var(--radius); border: 1px solid var(--border);
-  overflow: hidden; scroll-snap-align: start;
-}
-.card-img {
-  width: 100%; height: 148px;
-  position: relative; overflow: hidden; background: var(--bg);
-  display: flex; align-items: center; justify-content: center;
-}
+.coupon-card { flex: 0 0 220px; background: var(--white); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; scroll-snap-align: start; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
+.coupon-card:active { transform: scale(0.97); box-shadow: 0 2px 12px rgba(0,0,0,0.1); }
+.card-img { width: 100%; height: 148px; position: relative; overflow: hidden; background: var(--bg); display: flex; align-items: center; justify-content: center; }
 .card-img svg { width: 100%; height: 100%; display: block; }
-.card-img-tag {
-  position: absolute; top: 10px; left: 10px;
-  background: rgba(255,255,255,0.92); color: var(--text);
-  font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 100px;
-  border: 1px solid rgba(0,0,0,0.08); letter-spacing: 0.04em;
-}
-.coming-badge {
-  position: absolute; bottom: 10px; right: 10px;
-  background: rgba(34,34,34,0.65); color: rgba(255,255,255,0.92);
-  font-size: 9px; font-weight: 700; padding: 3px 9px; border-radius: 100px; letter-spacing: 0.05em;
-}
+.card-img-tag { position: absolute; top: 10px; left: 10px; background: rgba(255,255,255,0.92); color: var(--text); font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 100px; border: 1px solid rgba(0,0,0,0.08); letter-spacing: 0.04em; }
 .card-body { padding: 14px; }
 .card-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
-.card-desc { font-size: 12px; color: var(--sub); line-height: 1.55; margin-bottom: 12px; }
-.shimmer {
-  display: inline-block;
-  background: linear-gradient(90deg, #ebebeb 25%, #f5f5f5 50%, #ebebeb 75%);
-  background-size: 200% 100%; animation: shimmer 2s infinite;
-  border-radius: 6px; color: transparent; user-select: none;
-}
-@keyframes shimmer { 0%{background-position:200% 0} 100%{background-position:-200% 0} }
+.card-desc { font-size: 12px; color: var(--sub); line-height: 1.55; margin-bottom: 10px; }
+.card-discount { display: inline-block; background: #FFF3F1; color: var(--coral); font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 6px; margin-bottom: 10px; }
 .card-links { display: flex; gap: 6px; }
-.card-link-btn {
-  flex: 1; display: flex; align-items: center; justify-content: center; gap: 4px;
-  padding: 7px 4px; border-radius: 8px; border: 1px solid var(--border);
-  font-size: 10px; font-weight: 600; color: var(--text);
-  text-decoration: none; background: var(--white); transition: background 0.15s;
-}
+.card-link-btn { flex: 1; display: flex; align-items: center; justify-content: center; gap: 4px; padding: 7px 4px; border-radius: 8px; border: 1px solid var(--border); font-size: 10px; font-weight: 600; color: var(--text); text-decoration: none; background: var(--white); transition: background 0.15s; }
 .card-link-btn:active { background: var(--bg); }
 .card-link-btn svg { width: 12px; height: 12px; }
 
 /* CATEGORY */
 .cat-scroll { display: flex; gap: 10px; overflow-x: auto; scrollbar-width: none; padding-bottom: 4px; }
 .cat-scroll::-webkit-scrollbar { display: none; }
-.cat-pill {
-  flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 8px;
-  padding: 14px 0; width: 76px; border-radius: 14px; border: 1.5px solid var(--border);
-  background: var(--white); text-decoration: none; color: var(--text);
-  transition: border-color 0.15s, background 0.15s;
-}
+.cat-pill { flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 14px 0; width: 76px; border-radius: 14px; border: 1.5px solid var(--border); background: var(--white); text-decoration: none; color: var(--text); transition: border-color 0.15s, background 0.15s; }
 .cat-pill:active { border-color: var(--text); background: var(--bg); }
 .cat-pill svg { width: 24px; height: 24px; }
 .cat-pill span { font-size: 11px; font-weight: 600; white-space: nowrap; }
@@ -176,61 +65,47 @@ body {
 /* MAP */
 .map-section { padding: 28px 20px; border-bottom: 1px solid var(--border); }
 .map-card { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
-.map-visual {
-  height: 160px; background: #E8F2F1;
-  position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;
-}
-.map-visual::before {
-  content: ''; position: absolute; inset: 0;
-  background:
-    repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(60,134,129,0.1) 30px, rgba(60,134,129,0.1) 31px),
-    repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(60,134,129,0.1) 30px, rgba(60,134,129,0.1) 31px);
-}
+.map-visual { height: 160px; background: #E8F2F1; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.map-visual::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(60,134,129,0.1) 30px, rgba(60,134,129,0.1) 31px), repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(60,134,129,0.1) 30px, rgba(60,134,129,0.1) 31px); }
 .map-pin-wrap { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
-.map-pin-head {
-  width: 40px; height: 40px; background: var(--coral);
-  border-radius: 50% 50% 50% 0; transform: rotate(-45deg);
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 16px rgba(255,107,80,0.4);
-}
+.map-pin-head { width: 40px; height: 40px; background: var(--coral); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(255,107,80,0.4); }
 .map-pin-head svg { transform: rotate(45deg); width: 18px; height: 18px; color: #fff; }
 .map-pin-shadow { width: 14px; height: 5px; background: rgba(0,0,0,0.18); border-radius: 50%; margin-top: 3px; filter: blur(2px); }
-.map-visual::after {
-  content: ''; position: absolute; top: 50%; left: 50%;
-  width: 72px; height: 72px;
-  border: 2px solid rgba(255,107,80,0.3); border-radius: 50%;
-  animation: ping 2.2s ease-out infinite;
-}
-@keyframes ping {
-  0% { transform: translate(-50%,-60%) scale(0.5); opacity: 1; }
-  100% { transform: translate(-50%,-60%) scale(2); opacity: 0; }
-}
+.map-visual::after { content: ''; position: absolute; top: 50%; left: 50%; width: 72px; height: 72px; border: 2px solid rgba(255,107,80,0.3); border-radius: 50%; animation: ping 2.2s ease-out infinite; }
+@keyframes ping { 0% { transform: translate(-50%,-60%) scale(0.5); opacity: 1; } 100% { transform: translate(-50%,-60%) scale(2); opacity: 0; } }
 .map-card-body { padding: 18px 18px 20px; }
 .map-card-title { font-size: 17px; font-weight: 800; color: var(--teal); margin-bottom: 6px; }
 .map-card-desc { font-size: 13px; color: var(--sub); line-height: 1.6; margin-bottom: 16px; }
-.map-btn {
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  background: var(--coral); color: var(--white); font-size: 15px; font-weight: 700;
-  padding: 16px; border-radius: 12px; text-decoration: none;
-  box-shadow: 0 4px 16px rgba(255,107,80,0.3); transition: background 0.2s, transform 0.15s;
-}
+.map-btn { display: flex; align-items: center; justify-content: center; gap: 8px; background: var(--coral); color: var(--white); font-size: 15px; font-weight: 700; padding: 16px; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 16px rgba(255,107,80,0.3); transition: background 0.2s, transform 0.15s; }
 .map-btn:active { background: var(--coral-dark); transform: scale(0.98); }
 .map-btn svg { width: 18px; height: 18px; }
 
 /* FOOTER NAV */
-.footer-nav {
-  position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
-  width: 100%; max-width: 480px; background: var(--white); border-top: 1px solid var(--border);
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  padding: 8px 0 max(8px, env(safe-area-inset-bottom)); z-index: 100;
-}
-.nav-item {
-  display: flex; flex-direction: column; align-items: center; gap: 3px;
-  text-decoration: none; color: var(--sub); font-size: 10px; font-weight: 600;
-  padding: 6px 4px; transition: color 0.15s;
-}
+.footer-nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; background: var(--white); border-top: 1px solid var(--border); display: grid; grid-template-columns: repeat(4, 1fr); padding: 8px 0 max(8px, env(safe-area-inset-bottom)); z-index: 100; }
+.nav-item { display: flex; flex-direction: column; align-items: center; gap: 3px; text-decoration: none; color: var(--sub); font-size: 10px; font-weight: 600; padding: 6px 4px; transition: color 0.15s; }
 .nav-item.active { color: var(--coral); }
 .nav-item svg { width: 22px; height: 22px; }
+
+/* MODAL */
+.modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200; display: flex; align-items: flex-end; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.25s; }
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal { background: var(--white); border-radius: 24px 24px 0 0; width: 100%; max-width: 480px; max-height: 90vh; overflow-y: auto; padding: 0 0 40px; transform: translateY(40px); transition: transform 0.28s cubic-bezier(0.32,0.72,0,1); }
+.modal-overlay.open .modal { transform: translateY(0); }
+.modal-handle { width: 36px; height: 4px; background: var(--border); border-radius: 2px; margin: 14px auto 0; }
+.modal-img { width: 100%; height: 200px; object-fit: cover; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.modal-img svg { width: 100%; height: 100%; }
+.modal-body { padding: 20px 22px 0; }
+.modal-category { font-size: 11px; font-weight: 700; color: var(--teal); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px; }
+.modal-title { font-size: 20px; font-weight: 800; color: var(--text); margin-bottom: 8px; }
+.modal-desc { font-size: 13px; color: var(--sub); line-height: 1.7; margin-bottom: 16px; }
+.modal-coupon-box { background: #FFF3F1; border: 1.5px dashed var(--coral); border-radius: 12px; padding: 16px 18px; margin-bottom: 20px; }
+.modal-coupon-label { font-size: 10px; font-weight: 700; color: var(--coral); letter-spacing: 0.06em; margin-bottom: 4px; }
+.modal-coupon-text { font-size: 18px; font-weight: 800; color: var(--text); }
+.modal-coupon-note { font-size: 11px; color: var(--sub); margin-top: 4px; }
+.modal-links { display: flex; gap: 8px; margin-bottom: 20px; }
+.modal-link-btn { flex: 1; display: flex; align-items: center; justify-content: center; gap: 5px; padding: 10px 4px; border-radius: 10px; border: 1px solid var(--border); font-size: 11px; font-weight: 600; color: var(--text); text-decoration: none; background: var(--white); }
+.modal-link-btn svg { width: 13px; height: 13px; }
+.modal-close { display: flex; align-items: center; justify-content: center; width: calc(100% - 44px); margin: 0 22px; padding: 15px; background: var(--bg); border-radius: 12px; border: none; font-size: 14px; font-weight: 700; color: var(--sub); cursor: pointer; }
 </style>
 </head>
 <body>
@@ -273,34 +148,27 @@ body {
   </div>
   <div class="cards-scroll">
 
-    <div class="coupon-card">
+    <!-- Card 1: Gourmet -->
+    <div class="coupon-card" onclick="openModal(0)">
       <div class="card-img">
         <svg viewBox="0 0 220 148" xmlns="http://www.w3.org/2000/svg">
           <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FF9A5C"/><stop offset="100%" stop-color="#FF6B50"/></linearGradient></defs>
           <rect width="220" height="148" fill="url(#g1)"/>
           <circle cx="160" cy="30" r="40" fill="rgba(255,255,255,0.08)"/>
           <ellipse cx="110" cy="90" rx="52" ry="18" fill="rgba(255,255,255,0.15)"/>
-          <path d="M58 90 Q110 128 162 90" fill="rgba(255,255,255,0.18)"/>
-          <line x1="88" y1="50" x2="98" y2="95" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
-          <line x1="100" y1="48" x2="108" y2="94" stroke="white" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
-          <path d="M90 80 Q110 70 130 80 Q110 90 90 80Z" fill="rgba(255,255,255,0.3)"/>
           <text x="110" y="140" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.5)" font-family="sans-serif" font-weight="600">OKINAWA GOURMET</text>
         </svg>
         <span class="card-img-tag"><span data-ja>グルメ</span><span data-en style="display:none">Gourmet</span></span>
-        <span class="coming-badge">COMING SOON</span>
       </div>
       <div class="card-body">
-        <div class="card-title"><span class="shimmer">飲食店名が入ります</span></div>
-        <div class="card-desc"><span class="shimmer">沖縄料理・お得情報</span></div>
-        <div class="card-links">
-          <a href="#" class="card-link-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>MAP</a>
-          <a href="#" class="card-link-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>SNS</a>
-          <a href="#" class="card-link-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>WEB</a>
-        </div>
+        <div class="card-title"><span data-ja>○○食堂</span><span data-en style="display:none">XX Shokudo</span></div>
+        <div class="card-desc"><span data-ja>本場の沖縄料理を堪能</span><span data-en style="display:none">Authentic Okinawan cuisine</span></div>
+        <div class="card-discount"><span data-ja>ドリンク1杯無料</span><span data-en style="display:none">1 Free Drink</span></div>
       </div>
     </div>
 
-    <div class="coupon-card">
+    <!-- Card 2: Activity -->
+    <div class="coupon-card" onclick="openModal(1)">
       <div class="card-img">
         <svg viewBox="0 0 220 148" xmlns="http://www.w3.org/2000/svg">
           <defs><linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#29B6D4"/><stop offset="100%" stop-color="#0077A8"/></linearGradient></defs>
@@ -315,20 +183,16 @@ body {
           <text x="110" y="142" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.45)" font-family="sans-serif" font-weight="600">DIVING &amp; SNORKEL</text>
         </svg>
         <span class="card-img-tag"><span data-ja>体験</span><span data-en style="display:none">Activity</span></span>
-        <span class="coming-badge">COMING SOON</span>
       </div>
       <div class="card-body">
-        <div class="card-title"><span class="shimmer">アクティビティ名</span></div>
-        <div class="card-desc"><span class="shimmer">ダイビング・体験情報</span></div>
-        <div class="card-links">
-          <a href="#" class="card-link-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>MAP</a>
-          <a href="#" class="card-link-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>SNS</a>
-          <a href="#" class="card-link-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>WEB</a>
-        </div>
+        <div class="card-title"><span data-ja>○○ダイビング</span><span data-en style="display:none">XX Diving</span></div>
+        <div class="card-desc"><span data-ja>青い海で最高の体験を</span><span data-en style="display:none">Best experience in the blue sea</span></div>
+        <div class="card-discount"><span data-ja>体験料 10% OFF</span><span data-en style="display:none">10% OFF</span></div>
       </div>
     </div>
 
-    <div class="coupon-card">
+    <!-- Card 3: Beauty -->
+    <div class="coupon-card" onclick="openModal(2)">
       <div class="card-img">
         <svg viewBox="0 0 220 148" xmlns="http://www.w3.org/2000/svg">
           <defs><linearGradient id="g3" x1="0" y1="1" x2="1" y2="0"><stop offset="0%" stop-color="#C47FD4"/><stop offset="100%" stop-color="#E8A0D0"/></linearGradient></defs>
@@ -345,20 +209,16 @@ body {
           <text x="110" y="140" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.45)" font-family="sans-serif" font-weight="600">BEAUTY &amp; SPA</text>
         </svg>
         <span class="card-img-tag"><span data-ja>美容</span><span data-en style="display:none">Beauty</span></span>
-        <span class="coming-badge">COMING SOON</span>
       </div>
       <div class="card-body">
-        <div class="card-title"><span class="shimmer">サロン・美容店名</span></div>
-        <div class="card-desc"><span class="shimmer">エステ・マッサージ情報</span></div>
-        <div class="card-links">
-          <a href="#" class="card-link-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>MAP</a>
-          <a href="#" class="card-link-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>SNS</a>
-          <a href="#" class="card-link-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>WEB</a>
-        </div>
+        <div class="card-title"><span data-ja>○○ビューティサロン</span><span data-en style="display:none">XX Beauty Salon</span></div>
+        <div class="card-desc"><span data-ja>至福のリラクゼーション</span><span data-en style="display:none">Ultimate relaxation</span></div>
+        <div class="card-discount"><span data-ja>初回 20% OFF</span><span data-en style="display:none">20% OFF First Visit</span></div>
       </div>
     </div>
 
-    <div class="coupon-card">
+    <!-- Card 4: Souvenir -->
+    <div class="coupon-card" onclick="openModal(3)">
       <div class="card-img">
         <svg viewBox="0 0 220 148" xmlns="http://www.w3.org/2000/svg">
           <defs><linearGradient id="g4" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F5A623"/><stop offset="100%" stop-color="#E87D0D"/></linearGradient></defs>
@@ -368,45 +228,32 @@ body {
           <text x="110" y="140" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.45)" font-family="sans-serif" font-weight="600">OKINAWA SOUVENIR</text>
         </svg>
         <span class="card-img-tag"><span data-ja>お土産</span><span data-en style="display:none">Souvenir</span></span>
-        <span class="coming-badge">COMING SOON</span>
       </div>
       <div class="card-body">
-        <div class="card-title"><span class="shimmer">ショップ名が入ります</span></div>
-        <div class="card-desc"><span class="shimmer">琉球ガラス・泡盛など</span></div>
-        <div class="card-links">
-          <a href="#" class="card-link-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>MAP</a>
-          <a href="#" class="card-link-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>SNS</a>
-          <a href="#" class="card-link-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>WEB</a>
-        </div>
+        <div class="card-title"><span data-ja>○○ショップ</span><span data-en style="display:none">XX Shop</span></div>
+        <div class="card-desc"><span data-ja>琉球ガラス・泡盛など</span><span data-en style="display:none">Ryukyu glass, Awamori & more</span></div>
+        <div class="card-discount"><span data-ja>お会計 5% OFF</span><span data-en style="display:none">5% OFF</span></div>
       </div>
     </div>
 
-    <div class="coupon-card">
+    <!-- Card 5: Rental Car -->
+    <div class="coupon-card" onclick="openModal(4)">
       <div class="card-img">
         <svg viewBox="0 0 220 148" xmlns="http://www.w3.org/2000/svg">
           <defs><linearGradient id="g5" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3C8681"/><stop offset="100%" stop-color="#2A5F5C"/></linearGradient></defs>
           <rect width="220" height="148" fill="url(#g5)"/>
           <rect x="60" y="75" width="100" height="38" rx="8" fill="white" opacity="0.9"/>
           <path d="M75 75 Q85 52 100 52 L120 52 Q135 52 145 75Z" fill="white" opacity="0.85"/>
-          <rect x="82" y="57" width="24" height="18" rx="4" fill="#3C8681" opacity="0.6"/>
-          <rect x="114" y="57" width="24" height="18" rx="4" fill="#3C8681" opacity="0.6"/>
-          <circle cx="85" cy="113" r="12" fill="#333"/>
-          <circle cx="85" cy="113" r="6" fill="#888"/>
-          <circle cx="135" cy="113" r="12" fill="#333"/>
-          <circle cx="135" cy="113" r="6" fill="#888"/>
+          <circle cx="85" cy="113" r="12" fill="#333"/><circle cx="85" cy="113" r="6" fill="#888"/>
+          <circle cx="135" cy="113" r="12" fill="#333"/><circle cx="135" cy="113" r="6" fill="#888"/>
           <text x="110" y="143" text-anchor="middle" font-size="11" fill="rgba(255,255,255,0.45)" font-family="sans-serif" font-weight="600">RENTAL CAR</text>
         </svg>
         <span class="card-img-tag"><span data-ja>レンタカー</span><span data-en style="display:none">Rental Car</span></span>
-        <span class="coming-badge">COMING SOON</span>
       </div>
       <div class="card-body">
-        <div class="card-title"><span class="shimmer">レンタカー会社名</span></div>
-        <div class="card-desc"><span class="shimmer">お得なプランが入ります</span></div>
-        <div class="card-links">
-          <a href="#" class="card-link-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>MAP</a>
-          <a href="#" class="card-link-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>SNS</a>
-          <a href="#" class="card-link-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>WEB</a>
-        </div>
+        <div class="card-title"><span data-ja>○○レンタカー</span><span data-en style="display:none">XX Rental Car</span></div>
+        <div class="card-desc"><span data-ja>島内を自由にドライブ</span><span data-en style="display:none">Drive freely across the island</span></div>
+        <div class="card-discount"><span data-ja>基本料金 15% OFF</span><span data-en style="display:none">15% OFF Base Rate</span></div>
       </div>
     </div>
 
@@ -423,26 +270,17 @@ body {
   </div>
   <div style="border:1.5px solid var(--teal);border-radius:var(--radius);overflow:hidden;background:var(--white);">
     <div style="height:160px;background:linear-gradient(135deg,#E8F4F3 0%,#C8E6E4 100%);position:relative;display:flex;align-items:center;justify-content:center;">
-      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="28" cy="28" r="28" fill="rgba(60,134,129,0.12)"/>
-        <path d="M28 16v24M16 28h24" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round"/>
-      </svg>
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none"><circle cx="28" cy="28" r="28" fill="rgba(60,134,129,0.12)"/><path d="M28 16v24M16 28h24" stroke="var(--teal)" stroke-width="2.5" stroke-linecap="round"/></svg>
       <span style="position:absolute;top:12px;left:12px;background:var(--teal);color:#fff;font-size:10px;font-weight:700;padding:4px 12px;border-radius:100px;letter-spacing:0.05em;">STAFF PICK</span>
       <span style="position:absolute;bottom:10px;right:12px;font-size:9px;font-weight:700;color:rgba(60,134,129,0.5);letter-spacing:0.08em;">COMING SOON</span>
     </div>
     <div style="padding:16px 18px 20px;">
-      <div style="font-size:15px;font-weight:800;color:var(--text);margin-bottom:5px;"><span class="shimmer">スタッフイチ押しのお店</span></div>
-      <div style="font-size:12px;color:var(--sub);line-height:1.6;margin-bottom:14px;"><span class="shimmer">地元スタッフが本当に好きなお店をご紹介します</span></div>
+      <div style="font-size:15px;font-weight:800;color:var(--text);margin-bottom:5px;"><span data-ja>スタッフイチ押しのお店</span><span data-en style="display:none">Staff's Top Pick</span></div>
+      <div style="font-size:12px;color:var(--sub);line-height:1.6;margin-bottom:14px;"><span data-ja>地元スタッフが本当に好きなお店をご紹介します</span><span data-en style="display:none">A spot our local staff truly loves.</span></div>
       <div style="display:flex;gap:8px;">
-        <a href="#" class="card-link-btn" style="flex:1;padding:9px 4px;font-size:11px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>MAP
-        </a>
-        <a href="#" class="card-link-btn" style="flex:1;padding:9px 4px;font-size:11px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>SNS
-        </a>
-        <a href="#" class="card-link-btn" style="flex:1;padding:9px 4px;font-size:11px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>WEB
-        </a>
+        <a href="#" class="card-link-btn" style="flex:1;padding:9px 4px;font-size:11px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>MAP</a>
+        <a href="#" class="card-link-btn" style="flex:1;padding:9px 4px;font-size:11px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>SNS</a>
+        <a href="#" class="card-link-btn" style="flex:1;padding:9px 4px;font-size:11px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px;"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>WEB</a>
       </div>
     </div>
   </div>
@@ -454,31 +292,11 @@ body {
     <div class="section-title"><span data-ja>カテゴリーから探す</span><span data-en style="display:none">Browse by Category</span></div>
   </div>
   <div class="cat-scroll">
-    <a href="#" class="cat-pill">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-      <span><span data-ja>グルメ</span><span data-en style="display:none">Food</span></span>
-    </a>
-    <a href="#" class="cat-pill">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M2 8c2-3 4-3 6 0s4 3 6 0 4-3 6 0"/>
-        <path d="M6 14c1.5 1.5 3 2 5 1.5s3.5-2 5-1.5"/>
-        <ellipse cx="17" cy="18" rx="3" ry="2"/>
-        <path d="M20 17l2-2M20 19l2 2"/>
-      </svg>
-      <span><span data-ja>ダイビング</span><span data-en style="display:none">Diving</span></span>
-    </a>
-    <a href="#" class="cat-pill">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-      <span><span data-ja>お土産</span><span data-en style="display:none">Souvenir</span></span>
-    </a>
-    <a href="#" class="cat-pill">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      <span><span data-ja>美容</span><span data-en style="display:none">Beauty</span></span>
-    </a>
-    <a href="#" class="cat-pill">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h13l3 5v5h-2"/><path d="M7 17h8"/><circle cx="5.5" cy="17.5" r="2.5"/><circle cx="18.5" cy="17.5" r="2.5"/><path d="M3 9h11l2 4H3z"/></svg>
-      <span><span data-ja>レンタカー</span><span data-en style="display:none">Car Rental</span></span>
-    </a>
+    <a href="#" class="cat-pill"><svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg><span><span data-ja>グルメ</span><span data-en style="display:none">Food</span></span></a>
+    <a href="#" class="cat-pill"><svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8c2-3 4-3 6 0s4 3 6 0 4-3 6 0"/><path d="M6 14c1.5 1.5 3 2 5 1.5s3.5-2 5-1.5"/><ellipse cx="17" cy="18" rx="3" ry="2"/><path d="M20 17l2-2M20 19l2 2"/></svg><span><span data-ja>ダイビング</span><span data-en style="display:none">Diving</span></span></a>
+    <a href="#" class="cat-pill"><svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span><span data-ja>お土産</span><span data-en style="display:none">Souvenir</span></span></a>
+    <a href="#" class="cat-pill"><svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span><span data-ja>美容</span><span data-en style="display:none">Beauty</span></span></a>
+    <a href="#" class="cat-pill"><svg viewBox="0 0 24 24" fill="none" stroke="#222" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h13l3 5v5h-2"/><path d="M7 17h8"/><circle cx="5.5" cy="17.5" r="2.5"/><circle cx="18.5" cy="17.5" r="2.5"/><path d="M3 9h11l2 4H3z"/></svg><span><span data-ja>レンタカー</span><span data-en style="display:none">Car Rental</span></span></a>
   </div>
 </section>
 
@@ -490,21 +308,13 @@ body {
   <div class="map-card">
     <div class="map-visual">
       <div class="map-pin-wrap">
-        <div class="map-pin-head">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
+        <div class="map-pin-head"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <div class="map-pin-shadow"></div>
       </div>
     </div>
     <div class="map-card-body">
-      <div class="map-card-title">
-        <span data-ja>Googleマップで周辺スポットをチェック</span>
-        <span data-en style="display:none">Check Nearby Spots on Google Maps</span>
-      </div>
-      <div class="map-card-desc">
-        <span data-ja>現在地から近いグルメ・観光・体験スポットをリアルタイムで確認できます。</span>
-        <span data-en style="display:none">Find restaurants, sightseeing, and experience spots near you in real time.</span>
-      </div>
+      <div class="map-card-title"><span data-ja>Googleマップで周辺スポットをチェック</span><span data-en style="display:none">Check Nearby Spots on Google Maps</span></div>
+      <div class="map-card-desc"><span data-ja>現在地から近いグルメ・観光・体験スポットをリアルタイムで確認できます。</span><span data-en style="display:none">Find restaurants, sightseeing, and experience spots near you in real time.</span></div>
       <a href="https://maps.google.com/?q=Okinawa+restaurants+nearby" target="_blank" rel="noopener" class="map-btn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         <span data-ja>マップで周辺を見る</span><span data-en style="display:none">Open in Google Maps</span>
@@ -515,34 +325,124 @@ body {
 
 <!-- FOOTER NAV -->
 <nav class="footer-nav">
-  <a href="#coupons" class="nav-item active">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
-    <span data-ja>特典</span><span data-en style="display:none">Deals</span>
-  </a>
-  <a href="#map" class="nav-item">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-    MAP
-  </a>
-  <a href="#coupons" class="nav-item">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-    <span data-ja>グルメ</span><span data-en style="display:none">Food</span>
-  </a>
-  <a href="#category" class="nav-item">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-    <span data-ja>観光</span><span data-en style="display:none">Explore</span>
-  </a>
+  <a href="#coupons" class="nav-item active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg><span data-ja>特典</span><span data-en style="display:none">Deals</span></a>
+  <a href="#map" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>MAP</a>
+  <a href="#coupons" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg><span data-ja>グルメ</span><span data-en style="display:none">Food</span></a>
+  <a href="#category" class="nav-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg><span data-ja>観光</span><span data-en style="display:none">Explore</span></a>
 </nav>
 
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOnBg(event)">
+  <div class="modal" id="modal">
+    <div class="modal-handle"></div>
+    <div class="modal-img" id="modalImg"></div>
+    <div class="modal-body">
+      <div class="modal-category" id="modalCategory"></div>
+      <div class="modal-title" id="modalTitle"></div>
+      <div class="modal-desc" id="modalDesc"></div>
+      <div class="modal-coupon-box">
+        <div class="modal-coupon-label">COUPON</div>
+        <div class="modal-coupon-text" id="modalCoupon"></div>
+        <div class="modal-coupon-note" id="modalNote"></div>
+      </div>
+      <div class="modal-links">
+        <a id="modalMap" href="#" target="_blank" class="modal-link-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>MAP</a>
+        <a id="modalSns" href="#" target="_blank" class="modal-link-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>SNS</a>
+        <a id="modalWeb" href="#" target="_blank" class="modal-link-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>WEB</a>
+      </div>
+      <button class="modal-close" onclick="closeModal()"><span data-ja>閉じる</span><span data-en style="display:none">Close</span></button>
+    </div>
+  </div>
+</div>
+
 <script>
+var currentLang = 'ja';
+
+var cards = [
+  {
+    category: { ja: 'グルメ', en: 'Gourmet' },
+    title: { ja: '○○食堂', en: 'XX Shokudo' },
+    desc: { ja: '本場の沖縄料理をリーズナブルに楽しめるお食事処。地元の食材にこだわった、沖縄そばやチャンプルーが自慢です。', en: 'Enjoy authentic Okinawan cuisine at a great price. Famous for Okinawa soba and champuru using local ingredients.' },
+    coupon: { ja: 'ドリンク1杯無料', en: '1 Free Drink' },
+    note: { ja: '※お食事ご注文の方限定。お会計時にこの画面をご提示ください。', en: '* With any meal order. Show this screen at checkout.' },
+    map: '#', sns: '#', web: '#',
+    svgId: 'g1'
+  },
+  {
+    category: { ja: '体験', en: 'Activity' },
+    title: { ja: '○○ダイビング', en: 'XX Diving' },
+    desc: { ja: '透明度抜群の沖縄の海でダイビング・シュノーケル体験。初心者から上級者まで対応しています。', en: 'Diving & snorkeling in the crystal-clear waters of Okinawa. Available for beginners to advanced divers.' },
+    coupon: { ja: '体験料 10% OFF', en: '10% OFF Experience Fee' },
+    note: { ja: '※要予約。お会計時にこの画面をご提示ください。', en: '* Reservation required. Show this screen at checkout.' },
+    map: '#', sns: '#', web: '#',
+    svgId: 'g2'
+  },
+  {
+    category: { ja: '美容', en: 'Beauty' },
+    title: { ja: '○○ビューティサロン', en: 'XX Beauty Salon' },
+    desc: { ja: '沖縄の自然由来成分を使ったトリートメントが人気。旅の疲れを癒す極上のリラクゼーションをどうぞ。', en: 'Popular treatments using natural Okinawan ingredients. Ultimate relaxation to soothe travel fatigue.' },
+    coupon: { ja: '初回 20% OFF', en: '20% OFF First Visit' },
+    note: { ja: '※初回ご利用の方限定。お会計時にこの画面をご提示ください。', en: '* First visit only. Show this screen at checkout.' },
+    map: '#', sns: '#', web: '#',
+    svgId: 'g3'
+  },
+  {
+    category: { ja: 'お土産', en: 'Souvenir' },
+    title: { ja: '○○ショップ', en: 'XX Shop' },
+    desc: { ja: '琉球ガラスや泡盛、海塩など沖縄ならではのお土産が充実。大切な方へのギフトにも最適です。', en: 'Wide selection of Okinawan souvenirs including Ryukyu glass, Awamori, and sea salt. Perfect for gifts.' },
+    coupon: { ja: 'お会計 5% OFF', en: '5% OFF Total Purchase' },
+    note: { ja: '※一部対象外商品あり。お会計時にこの画面をご提示ください。', en: '* Some exclusions apply. Show this screen at checkout.' },
+    map: '#', sns: '#', web: '#',
+    svgId: 'g4'
+  },
+  {
+    category: { ja: 'レンタカー', en: 'Rental Car' },
+    title: { ja: '○○レンタカー', en: 'XX Rental Car' },
+    desc: { ja: '沖縄観光には車が便利。コンパクトカーからミニバンまで豊富なラインナップ。ナビ・ETC完備。', en: 'Cars are the best way to explore Okinawa. Wide lineup from compact to minivans. All equipped with nav & ETC.' },
+    coupon: { ja: '基本料金 15% OFF', en: '15% OFF Base Rate' },
+    note: { ja: '※前日までの予約限定。お会計時にこの画面をご提示ください。', en: '* Book by the day before. Show this screen at checkout.' },
+    map: '#', sns: '#', web: '#',
+    svgId: 'g5'
+  }
+];
+
+var svgContents = {};
+document.querySelectorAll('.card-img svg').forEach(function(svg, i) {
+  svgContents[i] = svg.outerHTML;
+});
+
+function openModal(idx) {
+  var d = cards[idx];
+  var lang = currentLang;
+  document.getElementById('modalCategory').textContent = d.category[lang];
+  document.getElementById('modalTitle').textContent = d.title[lang];
+  document.getElementById('modalDesc').textContent = d.desc[lang];
+  document.getElementById('modalCoupon').textContent = d.coupon[lang];
+  document.getElementById('modalNote').textContent = d.note[lang];
+  document.getElementById('modalMap').href = d.map;
+  document.getElementById('modalSns').href = d.sns;
+  document.getElementById('modalWeb').href = d.web;
+  document.getElementById('modalImg').innerHTML = svgContents[idx] || '';
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeModalOnBg(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+
 function setLang(lang) {
+  currentLang = lang;
   var btns = document.querySelectorAll('.lang-btn');
   for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
-  var target = document.querySelector('.lang-btn[onclick="setLang(\'' + lang + '\')"]');
-  if (target) target.classList.add('active');
-  var jaEls = document.querySelectorAll('[data-ja]');
-  for (var j = 0; j < jaEls.length; j++) jaEls[j].style.display = lang === 'ja' ? '' : 'none';
-  var enEls = document.querySelectorAll('[data-en]');
-  for (var k = 0; k < enEls.length; k++) enEls[k].style.display = lang === 'en' ? '' : 'none';
+  document.querySelector('.lang-btn[onclick="setLang(\'' + lang + '\')"]').classList.add('active');
+  document.querySelectorAll('[data-ja]').forEach(function(el) { el.style.display = lang === 'ja' ? '' : 'none'; });
+  document.querySelectorAll('[data-en]').forEach(function(el) { el.style.display = lang === 'en' ? '' : 'none'; });
   document.documentElement.lang = lang;
 }
 </script>
